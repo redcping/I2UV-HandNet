@@ -1,0 +1,45 @@
+SYSTEM:
+  NUM_GPUS: 4
+  NUM_WORKDERS: 8
+TRAIN:
+  BATCH_SIZE: 64
+  EPOCH: 1000
+  IMAGE_SIZE: 256
+  #LOAD_PATH: /data/hand/log/handuvs_syth_real/hand_recon_parameters_epoch169.pth
+  #LOAD_PATH: /data/hand/log/handuvs_bg_uv_loss/hand_recon_parameters_epoch128.pth
+  LOAD_PATH: ./hand.pth
+  #LOAD_PATH: ./hand_recon_parameters_epoch148.pth
+  LOG_FREQ: 50
+  LR: 0.001
+  NUM_WORKERS: 10
+  REAL_EPOCH: 4
+  REAL_FREQ: 2
+  SAVE_GAP: 2
+  SAVE_PATH: handuvz/
+  SUMMARY_PATH: handuvz/
+DATA:
+  TRAIN_BG: othertrain/
+  TRAIN_REAL: hand/real/realhands-16k/,hand/real/cmu/
+  #TRAIN_SYTH: hand/real/cmu/
+  TRAIN_SYTH: hand/real/hand_HUMBCP/
+#,hand/real/realhands-16k/,hand/real/cmu/,hand/syth/
+  #TRAIN_SYTH: hand/real/xvx_frei_130k/
+LOSSES:
+  LAMBDA_CHAMFIER: 0.5
+  LAMBDA_CORR_RENDER: 0.5
+  LAMBDA_DEPTH: 0.5
+  LAMBDA_DT: 0.5
+  LAMBDA_GAN: 0.0
+  LAMBDA_GEOMTRY: 0.5
+  LAMBDA_NORM: 0.5
+  LAMBDA_SEGM: 0.5
+  LAMBDA_TEX_RENDER: 0.5
+AUX:
+  CAMERA_MATRIX: ./camera_info.npz
+  MANO_PATH: hand/mano/
+  MANO_POSE_NCOMPS: 6
+  MANO_SHAPE_NCOMPS: 10
+  MANO_SIDE: right
+  OBJ_PATH: ./HandRightUV.obj
+  UVS_MASK_PATH: ./HandRightUV_Corr.png
+  UVS_PATH: ./HandRightUV_UV.png

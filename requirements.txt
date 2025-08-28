@@ -1,0 +1,5 @@
+yacs==0.1.7
+numpy==1.18.2
+Pillow==7.1.2
+tensorboardX==2.0
+chumpy==0.69
